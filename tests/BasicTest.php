@@ -13,6 +13,7 @@ use MisterIcy\ExcelWriter\Properties\AbstractProperty;
 use MisterIcy\ExcelWriter\Properties\PropertyBuilder;
 use MisterIcy\ExcelWriter\Properties\PropertyCollection;
 use PHPUnit\Framework\TestCase;
+use MisterIcy\ExcelWriter\Properties\CallableProperty;
 
 class BasicTest extends TestCase
 {
@@ -62,6 +63,10 @@ class BasicTest extends TestCase
         );
         $properties->addProperty(
             PropertyBuilder::createProperty(PropertyBuilder::TIME, 'dateTime')
+        );
+        $properties->addProperty(
+            PropertyBuilder::createProperty(CallableProperty::class, 'int')
+            ->setCallable(function($d) { return ($d > 22) ? 'Yay' : 'Nay'; })
         );
 
 
