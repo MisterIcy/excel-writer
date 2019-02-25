@@ -10,7 +10,7 @@ use Symfony\Component\PropertyAccess\PropertyAccessor;
 
 abstract class AbstractProperty implements PropertyInterface
 {
-    use FormulaTrait, FormatTrait, HeaderTrait;
+    use FormulaTrait, FormatTrait, HeaderTrait, CallableTrait;
 
     /** @var PropertyAccessor */
     protected static $accessor;
@@ -39,8 +39,18 @@ abstract class AbstractProperty implements PropertyInterface
         return $this;
     }
 
+    public function isCallable()
+    {
+        return (!is_null($this->callable));
+    }
     public function renderProperty(object $object)
     {
+
+        if ($this->isCallable()) {
+            return $this->handleCallable(
+                $this->getValue($object)
+            );
+        }
         if ($this->isFormula) {
             return strval($this->getFormula());
         }

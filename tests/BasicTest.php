@@ -65,7 +65,7 @@ class BasicTest extends TestCase
             PropertyBuilder::createProperty(PropertyBuilder::TIME, 'dateTime')
         );
         $properties->addProperty(
-            PropertyBuilder::createProperty(CallableProperty::class, 'int')
+            PropertyBuilder::createProperty(PropertyBuilder::STRING, 'int')
             ->setCallable(function($d) { return ($d > 22) ? 'Yay' : 'Nay'; })
         );
 
