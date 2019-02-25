@@ -34,6 +34,14 @@ final class FormatHandler extends AbstractHandler
                         Coordinate::stringFromColumnIndex($columns)
                     )->setWidth($width);
             }
+
+            if (($header = $property->getTitle()) !== '' )
+            {
+                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(
+                    $columns, 1, $header
+                );
+            }
+
             $columns++;
         }
 

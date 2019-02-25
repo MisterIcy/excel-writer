@@ -42,7 +42,7 @@ class PropertyBuilder
         /** @var AbstractProperty $property */
         $property = $propertyReflector->newInstance();
 
-        if ($isFormula) {
+        if ($isFormula || $property->isFormula()) {
             if (is_null($formula)) {
                 throw new PropertyException("A property marked as formula, should contain a formula");
             }

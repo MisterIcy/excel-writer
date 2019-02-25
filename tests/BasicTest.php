@@ -10,6 +10,8 @@ use MisterIcy\ExcelWriter\Handlers\DataHandler;
 use MisterIcy\ExcelWriter\Handlers\FormatHandler;
 use MisterIcy\ExcelWriter\Handlers\MetadataHandler;
 use MisterIcy\ExcelWriter\Properties\AbstractProperty;
+use MisterIcy\ExcelWriter\Properties\IndexProperty;
+use MisterIcy\ExcelWriter\Properties\IntProperty;
 use MisterIcy\ExcelWriter\Properties\PropertyBuilder;
 use MisterIcy\ExcelWriter\Properties\PropertyCollection;
 use PHPUnit\Framework\TestCase;
@@ -32,6 +34,9 @@ class BasicTest extends TestCase
 
 
         $properties = new PropertyCollection();
+        $properties->addProperty(
+            PropertyBuilder::createProperty(IntProperty::class, null, true, '={row}-1')
+        );
         $properties->addProperty(
             PropertyBuilder::createProperty(PropertyBuilder::INT, 'int')
         );
@@ -56,7 +61,8 @@ class BasicTest extends TestCase
 
         $properties->addProperty(
             PropertyBuilder::createProperty(PropertyBuilder::DATE, 'dateTime')
-            ->setWidth(150)
+            ->setWidth(60)
+            ->setTitle('dateTime')
         );
         $properties->addProperty(
             PropertyBuilder::createProperty(PropertyBuilder::DATETIME, 'dateTime')
@@ -66,6 +72,8 @@ class BasicTest extends TestCase
         );
         $properties->addProperty(
             PropertyBuilder::createProperty(PropertyBuilder::STRING, 'int')
+                ->setWidth(15)
+                ->setTitle('Callable')
             ->setCallable(function($d) { return ($d > 22) ? 'Yay' : 'Nay'; })
         );
 
