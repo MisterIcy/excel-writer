@@ -8,6 +8,10 @@ final class StringProperty extends AbstractProperty
 {
     public function renderProperty(object $object)
     {
-        return strval(parent::renderProperty($object));
+        $rendered = parent::renderProperty($object);
+        if (!$this->isFormula) {
+            return strval($rendered);
+        }
+        return $rendered;
     }
 }

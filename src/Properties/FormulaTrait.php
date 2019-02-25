@@ -25,7 +25,7 @@ trait FormulaTrait
      * @param bool $isFormula
      * @return FormulaTrait
      */
-    public function setIsFormula(bool $isFormula): FormulaTrait
+    public function setIsFormula(bool $isFormula)
     {
         $this->isFormula = $isFormula;
         return $this;
@@ -43,7 +43,7 @@ trait FormulaTrait
      * @param string $formula
      * @return FormulaTrait
      */
-    public function setFormula(string $formula): FormulaTrait
+    public function setFormula(string $formula)
     {
         $this->formula = $formula;
         return $this;

@@ -13,7 +13,7 @@ abstract class AbstractProperty implements PropertyInterface
     use FormulaTrait;
 
     /** @var PropertyAccessor */
-    private static $accessor;
+    protected static $accessor;
     /**
      * Property Path
      *

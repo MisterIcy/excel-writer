@@ -18,7 +18,11 @@ final class IntProperty extends AbstractProperty
      */
     function renderProperty(object $object)
     {
-        return intval(parent::renderProperty($object));
+        $rendered = parent::renderProperty($object);
+        if (!$this->isFormula) {
+            return intval($rendered);
+        }
+        return $rendered;
     }
 
 

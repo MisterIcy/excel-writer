@@ -12,6 +12,7 @@ final class BasicGenerator extends AbstractGenerator
     public function __construct()
     {
         $this->spreadsheet = new Spreadsheet();
+        $this->spreadsheet->setActiveSheetIndex(0);
     }
 
     /**

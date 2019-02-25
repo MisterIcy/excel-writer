@@ -8,7 +8,11 @@ final class BoolProperty extends AbstractProperty
 {
     public function renderProperty(object $object) : bool
     {
-        return boolval(parent::renderProperty($object));
+        $rendered = parent::renderProperty($object);
+        if (!$this->isFormula) {
+            return boolval($rendered);
+        }
+        return $rendered;
     }
 
 }

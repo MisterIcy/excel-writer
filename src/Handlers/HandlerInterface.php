@@ -10,6 +10,6 @@ interface HandlerInterface
 {
     function setNext(HandlerInterface $handler) : HandlerInterface;
 
-    function handle(GeneratorInterface $generator) : HandlerInterface;
+    function handle(GeneratorInterface $generator);
 
 }

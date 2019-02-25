@@ -13,14 +13,15 @@ final class TimeProperty extends AbstractProperty
 
     public function renderProperty(object $object)
     {
-        if ($this->isFormula) {
-            return (parent::renderProperty($object));
+        $rendered = parent::renderProperty($object);
+        if (!$this->isFormula) {
+            return floatval(
+                $this->convertDateTimeToExcelDateTime(
+                    $this->getValue($rendered)
+                )
+            );
         }
-        return floatval(
-            $this->convertDateTimeToExcelTime(
-                $this->getValue($object)
-            )
-        );
+        return $rendered;
     }
 
 }

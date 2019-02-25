@@ -58,26 +58,33 @@ final class ExcelWriter
         }
         if (is_null($properties)) {
             $this->properties = new PropertyCollection();
+
         } else {
             $this->properties = $properties;
         }
+        $this->generator->setProperties($this->getProperties());
     }
 
     /**
      * @return Spreadsheet
      */
-    public function generateSpreadsheet() : Spreadsheet
+    public function generateSpreadsheet(array $data) : Spreadsheet
     {
+
         /** @var AbstractGenerator $generator */
-        $generator = $this->generator->generate();
+        $generator = $this->getGenerator();
+
+        $generator->setData($data);
+
+        $generator->generate();
 
         return $generator->getSpreadsheet();
 
     }
 
-    public function generateFile(string $filename = null) : \SplFileObject
+    public function generateFile(array $data, string $filename = null) : \SplFileObject
     {
-        $spreadsheet = $this->generateSpreadsheet();
+        $spreadsheet = $this->generateSpreadsheet($data);
 
         $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
 

@@ -8,7 +8,11 @@ final class CurrencyProperty extends AbstractProperty
 {
     public function renderProperty(object $object) : float
     {
-        return boolval(parent::renderProperty($object));
+        $rendered = parent::renderProperty($object);
+        if (!$this->isFormula) {
+            return floatval($rendered);
+        }
+        return $rendered;
     }
 
 }

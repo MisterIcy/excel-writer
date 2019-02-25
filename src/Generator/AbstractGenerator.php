@@ -6,6 +6,7 @@ namespace MisterIcy\ExcelWriter\Generator;
 
 use MisterIcy\ExcelWriter\Exceptions\GeneratorException;
 use MisterIcy\ExcelWriter\Handlers\HandlerInterface;
+use MisterIcy\ExcelWriter\Properties\PropertyCollection;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
 abstract class AbstractGenerator implements GeneratorInterface
@@ -24,6 +25,34 @@ abstract class AbstractGenerator implements GeneratorInterface
      * @var Spreadsheet
      */
     protected $spreadsheet;
+
+    /**
+     * @var PropertyCollection
+     */
+    protected $properties;
+
+    /**
+     * @var array
+     */
+    protected $data;
+
+    /**
+     * @return PropertyCollection
+     */
+    public function getProperties(): PropertyCollection
+    {
+        return $this->properties;
+    }
+
+    /**
+     * @param PropertyCollection $properties
+     * @return AbstractGenerator
+     */
+    public function setProperties(PropertyCollection $properties): AbstractGenerator
+    {
+        $this->properties = $properties;
+        return $this;
+    }
 
     /**
      * @param HandlerInterface $handler
@@ -65,6 +94,20 @@ abstract class AbstractGenerator implements GeneratorInterface
         return $this->spreadsheet;
     }
 
+    /**
+     * @return array
+     */
+    public function getData(): array
+    {
+        return $this->data;
+    }
 
-
+    /**
+     * @param array $data
+     */
+    public function setData(array $data): self
+    {
+        $this->data = $data;
+        return $this;
+    }
 }
