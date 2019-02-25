@@ -10,7 +10,7 @@ use Symfony\Component\PropertyAccess\PropertyAccessor;
 
 abstract class AbstractProperty implements PropertyInterface
 {
-    use FormulaTrait;
+    use FormulaTrait, FormatTrait;
 
     /** @var PropertyAccessor */
     protected static $accessor;
@@ -56,12 +56,12 @@ abstract class AbstractProperty implements PropertyInterface
 
     public function checkProperty(object $object): bool
     {
+
         if (static::getAccessor()->isReadable($object, $this->getPath())) {
             return true;
         }
         $objectIdentifier = method_exists($object, '__toString') ?
             call_user_func_array([$object, '__toString'], []) : get_class($object);
-
         throw new PropertyException(
             sprintf("I couldn't read property %s of %s", $this->getPath(), $objectIdentifier)
         );

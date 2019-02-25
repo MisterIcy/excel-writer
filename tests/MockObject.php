@@ -4,6 +4,8 @@
 namespace Tests;
 
 
+use PhpOffice\PhpSpreadsheet\Calculation\DateTime;
+
 class MockObject
 {
     public $int = 0;
@@ -12,8 +14,19 @@ class MockObject
 
     public $string = 'test';
 
+    public $float = 0;
+
+    /** @var \DateTime $dateTime */
+    public $dateTime;
+
     public function __construct()
     {
+        $this->dateTime = new \DateTime('@' . random_int(0, 1551095933));
         $this->int = random_int(0, 42);
+        $this->float = random_int(0, PHP_INT_MAX) / PHP_INT_MAX;
+    }
+    public function __toString()
+    {
+        return get_class($this) . "#" . $this->int;
     }
 }

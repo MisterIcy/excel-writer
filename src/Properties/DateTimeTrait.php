@@ -14,7 +14,7 @@ trait DateTimeTrait
      * @return float
      * @throws PropertyException
      */
-    public function convertDateTimeToExcelTime(\DateTimeInterface $object) : float
+    public function convertDateTimeToExcelTime(\DateTimeInterface $object)
     {
         if (!$object instanceof \DateTimeInterface) {
             throw new PropertyException("Invalid Date Object Supplied");

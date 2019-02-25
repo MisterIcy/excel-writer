@@ -11,6 +11,7 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
 abstract class AbstractGenerator implements GeneratorInterface
 {
+
     /**
      * @var HandlerInterface
      */
@@ -110,4 +111,6 @@ abstract class AbstractGenerator implements GeneratorInterface
         $this->data = $data;
         return $this;
     }
+
+
 }
