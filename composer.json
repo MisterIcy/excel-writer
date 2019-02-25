@@ -10,12 +10,12 @@
   "homepage": "https://github.com/mistericy/excel-writer",
   "autoload": {
     "psr-4": {
-      "MisterIcy\\ExcelWriter\\": "src"
+      "MisterIcy\\ExcelWriter\\": "./src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Tests\\": "tests"
+      "Tests\\": "./tests"
     }
   },
   "license": "MIT",

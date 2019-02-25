@@ -10,7 +10,7 @@ use Symfony\Component\PropertyAccess\PropertyAccessor;
 
 abstract class AbstractProperty implements PropertyInterface
 {
-    use FormulaTrait, FormatTrait;
+    use FormulaTrait, FormatTrait, HeaderTrait;
 
     /** @var PropertyAccessor */
     protected static $accessor;

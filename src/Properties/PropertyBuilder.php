@@ -35,7 +35,7 @@ class PropertyBuilder
         string $propertyPath = null,
         bool $isFormula = false,
         string $formula = null
-    ) : PropertyInterface {
+    ) : AbstractProperty {
 
 
         $propertyReflector = new \ReflectionClass($propertyType);

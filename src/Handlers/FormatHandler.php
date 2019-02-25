@@ -6,6 +6,7 @@ namespace MisterIcy\ExcelWriter\Handlers;
 
 use MisterIcy\ExcelWriter\Generator\AbstractGenerator;
 use MisterIcy\ExcelWriter\Generator\GeneratorInterface;
+use MisterIcy\ExcelWriter\Properties\AbstractProperty;
 use PhpOffice\PhpSpreadsheet\Cell\Cell;
 use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 use PhpOffice\PhpSpreadsheet\Style\Alignment;
@@ -24,6 +25,17 @@ final class FormatHandler extends AbstractHandler
         $spreadsheet = $generator->getSpreadsheet();
         $data = $generator->getData();
         $properties = $generator->getProperties();
+        /** @var AbstractProperty $property */
+        $columns = 1;
+        foreach ($properties->getProperties() as $property) {
+            if (($width = $property->getWidth()) > 0) {
+                $spreadsheet->getActiveSheet()
+                    ->getColumnDimension(
+                        Coordinate::stringFromColumnIndex($columns)
+                    )->setWidth($width);
+            }
+            $columns++;
+        }
 
         $highestRow = 1 + count($data);
         $highestCol = count($properties->getProperties());
