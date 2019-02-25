@@ -10,12 +10,12 @@
   "homepage": "https://github.com/mistericy/excel-writer",
   "autoload": {
     "psr-4": {
-      "MisterIcy\\ExcelWriter\\": "./src/"
+      "MisterIcy\\ExcelWriter\\": "src"
     }
   },
   "autoload-dev": {
     "psr-4": {
-      "Tests\\": "./tests"
+      "Tests\\": "tests"
     }
   },
   "license": "MIT",
@@ -27,6 +27,7 @@
     "symfony/property-access": "^3.0|^4.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "^8.0"
+    "phpunit/phpunit": "^8.0",
+    "phpmetrics/phpmetrics": "^2.4"
   }
 }
