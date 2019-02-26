@@ -35,6 +35,19 @@ final class DataHandler extends AbstractHandler
                 if ($property->isFormula()) {
                     $value = str_replace("{row}", strval($row), $value);
                     $value = str_replace("{col}", Coordinate::stringFromColumnIndex($column), $value);
+
+                    $matches = [];
+                    preg_match_all("/\[(.*?)\]/", $value, $matches, PREG_UNMATCHED_AS_NULL);
+
+                    if (count($matches) > 0) {
+                        if (count($matches[0]) === 0 && count($matches[1]) === 0) {
+                            continue;
+                        }
+                    }
+                    foreach ($matches[1] as $match) {
+                        $propColumn = $properties->getExcelColumnOfPropertyPath($match);
+                        $value = str_replace("[" . $match . "]", $propColumn, $value);
+                    }
                 }
                 $spreadsheet->getActiveSheet()
                     ->setCellValueByColumnAndRow($column, $row, $value);

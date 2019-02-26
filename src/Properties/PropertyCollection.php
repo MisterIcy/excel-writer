@@ -90,8 +90,11 @@ final class PropertyCollection
          * @var AbstractProperty $property
          */
         foreach ($this->getProperties()->toArray() as $key => $property) {
-            if (strcmp($propertyPath, $property->getPath())) {
-                return $this->getColumnOfProperty($property);
+            if (is_null($property->getPath())) {
+                continue;
+            }
+            if (strcmp($propertyPath, $property->getPath()) === 0) {
+                return $key + 1;
             }
         }
         throw new PropertyException("The specified property path is not found in any property of the collection");
@@ -104,8 +107,6 @@ final class PropertyCollection
      */
     public function getExcelColumnOfPropertyPath(string $propertyPath) : string
     {
-        return $this->getExcelColumnOfProperty(
-            $this->getColumnOfPropertyPath($propertyPath)
-        );
+        return Coordinate::stringFromColumnIndex($this->getColumnOfPropertyPath($propertyPath));
     }
 }

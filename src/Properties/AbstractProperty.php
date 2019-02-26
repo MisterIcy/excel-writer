@@ -35,9 +35,9 @@ abstract class AbstractProperty implements PropertyInterface
     protected $path;
 
     /**
-     * @return string
+     * @return string|null
      */
-    public function getPath(): string
+    public function getPath()
     {
         return $this->path;
     }

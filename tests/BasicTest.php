@@ -75,6 +75,12 @@ class BasicTest extends TestCase
                 ->setTitle('Callable')
             ->setCallable(function($d) { return ($d > 22) ? 'Yay' : 'Nay'; })
         );
+        $properties->addProperty(
+            PropertyBuilder::createProperty(PropertyBuilder::STRING, null, true, "=CONCATENATE([float]{row}, [string]{row})")
+            ->setTitle('Checking Property Columns')
+            ->setWidth(30)
+        );
+
 
 
 
