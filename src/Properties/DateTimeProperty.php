@@ -32,7 +32,7 @@ final class DateTimeProperty extends AbstractProperty
     {
         $rendered = parent::renderProperty($object);
         if (!$this->isFormula) {
-            return floatval(
+            return (
                 $this->convertDateTimeToExcelDateTime(
                     $rendered
                 )

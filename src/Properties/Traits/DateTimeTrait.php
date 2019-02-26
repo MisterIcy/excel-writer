@@ -44,16 +44,16 @@ trait DateTimeTrait
      * Coverts a DateTime object to Excel Time (float)
      *
      * @param DateTimeInterface|null $object
-     * @return float
+     * @return null|float
      * @throws TypeError
      */
-    public function convertDateTimeToExcelTime(?DateTimeInterface $object) : float
+    public function convertDateTimeToExcelTime(?DateTimeInterface $object)
     {
         //This is unrecoverable - we can't just assume Null.
         //The developer must handle this error.
         if (!$object instanceof DateTimeInterface) {
             if ($this->isNullAllowed()) {
-                return 0;
+                return null;
             }
             throw new TypeError("Invalid date object supplied to datetime converter");
         }
@@ -69,16 +69,16 @@ trait DateTimeTrait
      * Coverts a DateTime object to excel Date (float)
      *
      * @param DateTimeInterface|null $object
-     * @return float
+     * @return null|float
      * @throws TypeError
      */
-    public function convertDateTimeToExcelDate(?DateTimeInterface $object) : float
+    public function convertDateTimeToExcelDate(?DateTimeInterface $object)
     {
         //This is unrecoverable - we can't just assume Null.
         //The developer must handle this error.
         if (!$object instanceof DateTimeInterface) {
             if ($this->isNullAllowed()) {
-                return 0;
+                return null;
             }
             throw new TypeError("Invalid date object supplied to datetime converter");
         }
@@ -92,11 +92,16 @@ trait DateTimeTrait
 
     /**
      * @param DateTimeInterface|null $object
-     * @return float
+     * @return float|null
      * @throws TypeError
      */
-    public function convertDateTimeToExcelDateTime(?DateTimeInterface $object) : float
+    public function convertDateTimeToExcelDateTime(?DateTimeInterface $object)
     {
-        return $this->convertDateTimeToExcelDate($object) + $this->convertDateTimeToExcelTime($object);
+        $date = $this->convertDateTimeToExcelDate($object);
+        $time = $this->convertDateTimeToExcelTime($object);
+        if (is_null($date) && is_null($time)) {
+            return null;
+        }
+        return $date + $time;
     }
 }

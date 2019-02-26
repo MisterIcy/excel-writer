@@ -1,7 +1,17 @@
 # Changelog
 
 ## [Unreleased]
+## Added:
+ - Added NullableTrait that enables the library to be less strict, when searching for properties inside objects. By default we do not search strictly (instead of an Exception, ```null``` will be returned).   
 
+## Fixed:
+ - Fixed a bug in the reference DataHandler, where it seemed to skip certain formulas that didn't contain path parameters
+ - Fixed a formatting bug in DataHandler.
+ - Fixed a bug in DateTime Traits that returned 0 instead of null dates
+  
+## Removed:
+ - Removed a debugging ```fwrite``` from MetadataHandler
+ 
 ## [0.2]
 ### Added:
  - DateTimeTrait::$nullAllowed : Allows the developer to specify null values or other objects and get null values
