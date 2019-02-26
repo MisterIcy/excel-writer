@@ -8,6 +8,7 @@ use MisterIcy\ExcelWriter\Properties\Traits\CallableTrait;
 use MisterIcy\ExcelWriter\Properties\Traits\FormatTrait;
 use MisterIcy\ExcelWriter\Properties\Traits\FormulaTrait;
 use MisterIcy\ExcelWriter\Properties\Traits\HeaderTrait;
+use MisterIcy\ExcelWriter\Properties\Traits\NullableTrait;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
 use Error;
@@ -18,7 +19,7 @@ use Error;
  */
 abstract class AbstractProperty implements PropertyInterface
 {
-    use FormulaTrait, FormatTrait, HeaderTrait, CallableTrait;
+    use FormulaTrait, FormatTrait, HeaderTrait, CallableTrait, NullableTrait;
 
     /**
      * A static property accessor to read data from arrays/objects
@@ -107,8 +108,13 @@ abstract class AbstractProperty implements PropertyInterface
      */
     public function checkProperty(object $object): bool
     {
+
+
         if (static::getAccessor()->isReadable($object, $this->getPath())) {
             return true;
+        }
+        if (!$this->isStrict()) {
+            return false;
         }
         $objectIdentifier = method_exists($object, '__toString') ?
             call_user_func_array([$object, '__toString'], []) : get_class($object);
@@ -126,7 +132,10 @@ abstract class AbstractProperty implements PropertyInterface
      */
     protected function getValue(object $object)
     {
-        $this->checkProperty($object);
-        return static::getAccessor()->getValue($object, $this->getPath());
+        $check = $this->checkProperty($object);
+        if ($check) {
+            return static::getAccessor()->getValue($object, $this->getPath());
+        }
+        return null;
     }
 }
