@@ -20,5 +20,5 @@
  - Initial Version
  
 [Unreleased]: https://github.com/mistericy/excel-writer/compare/0.2...HEAD
-[0.2]: https://github.com/mistericy/excel-writer/compare/0.2...0.1
+[0.2]: https://github.com/mistericy/excel-writer/compare/0.1...0.2
 [0.1]: https://github.com/mistericy/excel-writer/compare/bb3225112943bc4300c93846cfee611f1b3b2fc8...0.1
