@@ -38,12 +38,25 @@ final class ExcelWriter
     /** @var GeneratorInterface */
     private $generator;
 
+    /**
+     * @param GeneratorInterface|null $generator
+     * @param PropertyCollection|null $properties
+     * @return ExcelWriter
+     * @throws \PhpOffice\PhpSpreadsheet\Exception
+     */
     public static function createWriter(
         GeneratorInterface $generator = null,
         PropertyCollection $properties = null
     ) : self {
         return new self($generator, $properties);
     }
+
+    /**
+     * ExcelWriter constructor.
+     * @param AbstractGenerator|null $generator
+     * @param PropertyCollection|null $properties
+     * @throws \PhpOffice\PhpSpreadsheet\Exception
+     */
     private function __construct(
         GeneratorInterface $generator = null,
         PropertyCollection $properties = null

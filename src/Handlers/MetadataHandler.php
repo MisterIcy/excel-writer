@@ -19,7 +19,6 @@ final class MetadataHandler extends AbstractHandler
     public function handle(GeneratorInterface $generator)
     {
         $spreadsheet = $generator->getSpreadsheet();
-        fwrite(STDOUT, "Got In Metadata Handler\n");
         $spreadsheet->getProperties()
             ->setCreator('mistericy/excel-writer')
             ->setTitle('Test Excel File');
