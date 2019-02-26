@@ -15,7 +15,15 @@ use PhpOffice\PhpSpreadsheet\Spreadsheet;
  */
 interface GeneratorInterface
 {
-    function generate(Spreadsheet $spreadsheet = null) : self;
+    /**
+     * @param Spreadsheet|null $spreadsheet
+     * @return GeneratorInterface
+     */
+    public function generate(Spreadsheet $spreadsheet = null) : self;
 
-    function setHandler(HandlerInterface $handler);
+    /**
+     * @param HandlerInterface $handler
+     * @return mixed
+     */
+    public function setHandler(HandlerInterface $handler);
 }
