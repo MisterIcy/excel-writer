@@ -20,7 +20,7 @@ trait DateTimeTrait
      * Allows null dates or other artifacts that are not of type {@see DateTimeInterface}.
      * @var bool
      */
-    private $nullAllowed = false;
+    private $nullAllowed = true;
 
     /**
      * @return bool
@@ -43,11 +43,11 @@ trait DateTimeTrait
     /**
      * Coverts a DateTime object to Excel Time (float)
      *
-     * @param DateTimeInterface $object
+     * @param DateTimeInterface|null $object
      * @return float
      * @throws TypeError
      */
-    public function convertDateTimeToExcelTime(DateTimeInterface $object) : float
+    public function convertDateTimeToExcelTime(?DateTimeInterface $object) : float
     {
         //This is unrecoverable - we can't just assume Null.
         //The developer must handle this error.
@@ -68,11 +68,11 @@ trait DateTimeTrait
     /**
      * Coverts a DateTime object to excel Date (float)
      *
-     * @param DateTimeInterface $object
+     * @param DateTimeInterface|null $object
      * @return float
      * @throws TypeError
      */
-    public function convertDateTimeToExcelDate(DateTimeInterface $object) : float
+    public function convertDateTimeToExcelDate(?DateTimeInterface $object) : float
     {
         //This is unrecoverable - we can't just assume Null.
         //The developer must handle this error.
@@ -91,11 +91,11 @@ trait DateTimeTrait
     }
 
     /**
-     * @param DateTimeInterface $object
+     * @param DateTimeInterface|null $object
      * @return float
      * @throws TypeError
      */
-    public function convertDateTimeToExcelDateTime(DateTimeInterface $object) : float
+    public function convertDateTimeToExcelDateTime(?DateTimeInterface $object) : float
     {
         return $this->convertDateTimeToExcelDate($object) + $this->convertDateTimeToExcelTime($object);
     }
