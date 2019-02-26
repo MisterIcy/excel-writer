@@ -1,6 +1,8 @@
 # Changelog
 
 ## [Unreleased]
+
+## [0.3]
 ## Added:
  - Added NullableTrait that enables the library to be less strict, when searching for properties inside objects. By default we do not search strictly (instead of an Exception, ```null``` will be returned).   
 
@@ -29,6 +31,7 @@
 ## [0.1]
  - Initial Version
  
-[Unreleased]: https://github.com/mistericy/excel-writer/compare/0.2...HEAD
+[Unreleased]: https://github.com/mistericy/excel-writer/compare/0.3...HEAD
+[0.3]: https://github.com/mistericy/excel-writer/compare/0.2...0.3
 [0.2]: https://github.com/mistericy/excel-writer/compare/0.1...0.2
 [0.1]: https://github.com/mistericy/excel-writer/compare/bb3225112943bc4300c93846cfee611f1b3b2fc8...0.1
