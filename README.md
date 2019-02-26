@@ -1,2 +1,9 @@
-# excel-writer
-Abstraction of PhpSpreadsheet for writing excel files
+# ExcelWriter
+
+ExcelWriter is a library that tries to abstract PHPSpreadsheet in order to facilitate
+the creation of excel reports from arrays and objects
+
+# Usage
+ 
+
+

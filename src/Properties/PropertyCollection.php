@@ -38,7 +38,7 @@ final class PropertyCollection
      */
     public function removeProperty(PropertyInterface $property)
     {
-        if ($this->collection->contains($property)){
+        if ($this->collection->contains($property)) {
             $this->collection->removeElement($property);
         }
         return $this;

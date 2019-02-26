@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 
 namespace MisterIcy\ExcelWriter;
 
@@ -41,15 +41,13 @@ final class ExcelWriter
     public static function createWriter(
         GeneratorInterface $generator = null,
         PropertyCollection $properties = null
-    ) : self
-    {
+    ) : self {
         return new self($generator, $properties);
     }
     private function __construct(
         GeneratorInterface $generator = null,
         PropertyCollection $properties = null
-    )
-    {
+    ) {
         if (is_null($generator)) {
             /** Default generator is the basic one */
             $this->generator = new BasicGenerator();
@@ -58,7 +56,6 @@ final class ExcelWriter
         }
         if (is_null($properties)) {
             $this->properties = new PropertyCollection();
-
         } else {
             $this->properties = $properties;
         }
@@ -70,7 +67,6 @@ final class ExcelWriter
      */
     public function generateSpreadsheet(array $data) : Spreadsheet
     {
-
         /** @var AbstractGenerator $generator */
         $generator = $this->getGenerator();
 
@@ -79,9 +75,14 @@ final class ExcelWriter
         $generator->generate();
 
         return $generator->getSpreadsheet();
-
     }
 
+    /**
+     * @param array $data
+     * @param string|null $filename
+     * @return \SplFileObject
+     * @throws \PhpOffice\PhpSpreadsheet\Writer\Exception
+     */
     public function generateFile(array $data, string $filename = null) : \SplFileObject
     {
         $spreadsheet = $this->generateSpreadsheet($data);

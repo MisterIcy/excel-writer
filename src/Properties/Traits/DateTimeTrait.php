@@ -6,6 +6,7 @@ namespace MisterIcy\ExcelWriter\Properties\Traits;
 use PhpOffice\PhpSpreadsheet\Shared\Date;
 use DateTimeInterface;
 use TypeError;
+
 /**
  * Trait DateTimeTrait
  * @package MisterIcy\ExcelWriter\Properties
@@ -61,7 +62,7 @@ trait DateTimeTrait
         $minute = intval($object->format('i'));
         $second = intval($object->format('s'));
 
-        return (Date::formattedPHPToExcel(1900, 1,1, $hour, $minute, $second) - 1);
+        return (Date::formattedPHPToExcel(1900, 1, 1, $hour, $minute, $second) - 1);
     }
 
     /**

@@ -1,14 +1,21 @@
 <?php
-
+declare(strict_types=1);
 
 namespace MisterIcy\ExcelWriter\Generator;
-
 
 use MisterIcy\ExcelWriter\Exceptions\GeneratorException;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
+/**
+ * Class BasicGenerator
+ * @package MisterIcy\ExcelWriter\Generator
+ */
 final class BasicGenerator extends AbstractGenerator
 {
+    /**
+     * BasicGenerator constructor.
+     * @throws \PhpOffice\PhpSpreadsheet\Exception
+     */
     public function __construct()
     {
         $this->spreadsheet = new Spreadsheet();
@@ -20,7 +27,7 @@ final class BasicGenerator extends AbstractGenerator
      * @return GeneratorInterface
      * @throws GeneratorException
      */
-    function generate(Spreadsheet $spreadsheet = null): GeneratorInterface
+    public function generate(Spreadsheet $spreadsheet = null): GeneratorInterface
     {
         if (is_null($this->handler)) {
             throw new GeneratorException("Handlers must be provided in order to generate a document");

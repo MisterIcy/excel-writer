@@ -1,8 +1,7 @@
 <?php
-
+declare(strict_types=1);
 
 namespace MisterIcy\ExcelWriter\Handlers;
-
 
 use MisterIcy\ExcelWriter\Generator\AbstractGenerator;
 use MisterIcy\ExcelWriter\Generator\GeneratorInterface;
@@ -14,6 +13,10 @@ use PhpOffice\PhpSpreadsheet\Style\Border;
 use PhpOffice\PhpSpreadsheet\Style\Color;
 use PhpOffice\PhpSpreadsheet\Style\Style;
 
+/**
+ * Class FormatHandler
+ * @package MisterIcy\ExcelWriter\Handlers
+ */
 final class FormatHandler extends AbstractHandler
 {
     /**
@@ -35,11 +38,9 @@ final class FormatHandler extends AbstractHandler
                     )->setWidth($width);
             }
 
-            if (($header = $property->getTitle()) !== '' )
-            {
-                $spreadsheet->getActiveSheet()->setCellValueByColumnAndRow(
-                    $columns, 1, $header
-                );
+            if (($header = $property->getTitle()) !== '') {
+                $spreadsheet->getActiveSheet()
+                    ->setCellValueByColumnAndRow($columns, 1, $header);
             }
 
             $columns++;
@@ -77,10 +78,8 @@ final class FormatHandler extends AbstractHandler
 
         $col = Coordinate::stringFromColumnIndex($highestCol);
 
-        $spreadsheet->getActiveSheet()->duplicateStyle(
-            $style, sprintf("A1:%s%d", $col, $highestRow)
-        );
+        $spreadsheet->getActiveSheet()
+            ->duplicateStyle($style, sprintf("A1:%s%d", $col, $highestRow));
         return parent::handle($generator);
     }
-
 }

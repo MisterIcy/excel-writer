@@ -118,6 +118,4 @@ abstract class AbstractGenerator implements GeneratorInterface
         $this->data = $data;
         return $this;
     }
-
-
 }
