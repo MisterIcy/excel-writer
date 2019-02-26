@@ -1,10 +1,14 @@
 <?php
-
+declare(strict_types=1);
 
 namespace MisterIcy\ExcelWriter\Properties;
 
 use MisterIcy\ExcelWriter\Exceptions\PropertyException;
 
+/**
+ * Class PropertyBuilder
+ * @package MisterIcy\ExcelWriter\Properties
+ */
 final class PropertyBuilder
 {
     const BOOLEAN = BoolProperty::class;
@@ -16,9 +20,11 @@ final class PropertyBuilder
     const INT = IntProperty::class;
     const STRING = StringProperty::class;
 
+    /**
+     * PropertyBuilder constructor.
+     */
     private function __construct()
     {
-
     }
 
     /**

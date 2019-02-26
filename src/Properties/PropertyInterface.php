@@ -1,5 +1,5 @@
-<?php declare(strict_types=1);
-
+<?php
+declare(strict_types=1);
 
 namespace MisterIcy\ExcelWriter\Properties;
 
@@ -19,7 +19,7 @@ interface PropertyInterface
      * @param $object
      * @return bool
      */
-    function checkProperty(object $object) : bool;
+    public function checkProperty(object $object) : bool;
 
     /**
      * Renders a property and returns the value to be written.
@@ -28,6 +28,5 @@ interface PropertyInterface
      * @param $object
      * @return mixed
      */
-    function renderProperty(object $object);
-
+    public function renderProperty(object $object);
 }
