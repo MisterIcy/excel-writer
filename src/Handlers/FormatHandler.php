@@ -25,8 +25,11 @@ final class FormatHandler extends AbstractHandler
      */
     public function handle(GeneratorInterface $generator)
     {
+        /** @scrutinizer ignore-call */
         $spreadsheet = $generator->getSpreadsheet();
+        /** @scrutinizer ignore-call */
         $data = $generator->getData();
+        /** @scrutinizer ignore-call */
         $properties = $generator->getProperties();
         /** @var AbstractProperty $property */
         $columns = 1;

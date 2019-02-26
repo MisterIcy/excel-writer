@@ -4,7 +4,6 @@ declare(strict_types=1);
 namespace MisterIcy\ExcelWriter\Properties;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use http\Encoding\Stream\Inflate;
 use MisterIcy\ExcelWriter\Exceptions\PropertyException;
 use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 

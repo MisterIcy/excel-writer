@@ -21,8 +21,11 @@ final class DataHandler extends AbstractHandler
      */
     public function handle(GeneratorInterface $generator)
     {
+        /** @scrutinizer ignore-call */
         $spreadsheet = $generator->getSpreadsheet();
+        /** @scrutinizer ignore-call */
         $properties = $generator->getProperties();
+        /** @scrutinizer ignore-call */
         $data = $generator->getData();
 
         $row = 2;
@@ -31,16 +34,13 @@ final class DataHandler extends AbstractHandler
         foreach ($data as $object) {
             /** @var AbstractProperty $property */
             foreach ($properties->getProperties() as $property) {
-
                 $value = $property->renderProperty($object);
-
                 if ($property->isFormula()) {
                     $value = str_replace("{row}", strval($row), $value);
                     $value = str_replace("{col}", Coordinate::stringFromColumnIndex($column), $value);
 
                     $matches = [];
                     preg_match_all("/\[(.*?)\]/", $value, $matches, PREG_UNMATCHED_AS_NULL);
-
 
                     if (count($matches) > 0) {
                         if (count($matches[0]) > 0 && count($matches[1]) > 0) {
@@ -53,7 +53,6 @@ final class DataHandler extends AbstractHandler
                 }
                 $spreadsheet->getActiveSheet()
                     ->setCellValueByColumnAndRow($column, $row, $value);
-
 
                 $spreadsheet
                     ->getActiveSheet()

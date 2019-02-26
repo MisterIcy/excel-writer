@@ -18,8 +18,8 @@ use MisterIcy\ExcelWriter\Properties\AbstractProperty;
  */
 trait CallableTrait
 {
-    /** @var callable */
-    protected $callable;
+    /** @var callable|null */
+    protected $callable = null;
 
     protected function handleCallable($object)
     {
@@ -30,18 +30,18 @@ trait CallableTrait
     }
 
     /**
-     * @return callable
+     * @return callable|null
      */
-    public function getCallable(): callable
+    public function getCallable()
     {
         return $this->callable;
     }
 
     /**
      * @param callable $callable
-     * @return mixed
+     * @return self
      */
-    public function setCallable(callable $callable)
+    public function setCallable(callable $callable) : self
     {
         $this->callable = $callable;
         return $this;

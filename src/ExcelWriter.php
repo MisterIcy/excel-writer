@@ -58,7 +58,7 @@ final class ExcelWriter
      * @throws \PhpOffice\PhpSpreadsheet\Exception
      */
     private function __construct(
-        GeneratorInterface $generator = null,
+        AbstractGenerator $generator = null,
         PropertyCollection $properties = null
     ) {
         if (is_null($generator)) {

@@ -1,5 +1,8 @@
 # ExcelWriter
 
+[![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/MisterIcy/excel-writer/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/MisterIcy/excel-writer/?branch=master)
+[![Build Status](https://scrutinizer-ci.com/g/MisterIcy/excel-writer/badges/build.png?b=master)](https://scrutinizer-ci.com/g/MisterIcy/excel-writer/build-status/master)
+
 ExcelWriter is a library that tries to abstract PHPSpreadsheet in order to facilitate
 the creation of excel reports from arrays and objects
 

@@ -54,6 +54,4 @@ trait NullableTrait
         $this->canBeNull = $canBeNull;
         return $this;
     }
-
-
 }
