@@ -1,14 +1,28 @@
 <?php
 declare(strict_types=1);
 
-namespace MisterIcy\ExcelWriter\Properties;
+namespace MisterIcy\ExcelWriter\Properties\Traits;
 
-
+/**
+ * Trait FormulaTrait
+ * @package MisterIcy\ExcelWriter\Properties
+ *
+ * @author Alexandros Koutroulis <icyd3mon@gmail.com>
+ * @license MIT
+ */
 trait FormulaTrait
 {
-    /** @var bool  */
-    protected $isFormula = false;
     /**
+     * @var bool
+     */
+    protected $isFormula = false;
+
+    /**
+     * Formula string.
+     *
+     * In order to be rendered, the formula must comply to PHPSpreadsheet's rules for formulas
+     *
+     * @example =CONCATENATE(A1,A2)
      * @var string
      */
     protected $formula = '';
@@ -23,9 +37,9 @@ trait FormulaTrait
 
     /**
      * @param bool $isFormula
-     * @return mixed
+     * @return self
      */
-    public function setIsFormula(bool $isFormula)
+    public function setIsFormula(bool $isFormula) : self
     {
         $this->isFormula = $isFormula;
         return $this;
@@ -41,13 +55,11 @@ trait FormulaTrait
 
     /**
      * @param string $formula
-     * @return mixed
+     * @return self
      */
-    public function setFormula(string $formula)
+    public function setFormula(string $formula) : self
     {
         $this->formula = $formula;
         return $this;
     }
-
-
 }

@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace MisterIcy\ExcelWriter\Properties;
+namespace MisterIcy\ExcelWriter\Properties\Traits;
 
 use PhpOffice\PhpSpreadsheet\Shared\Date;
 use DateTimeInterface;
