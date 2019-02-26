@@ -9,7 +9,6 @@ use MisterIcy\ExcelWriter\Generator\BasicGenerator;
 use MisterIcy\ExcelWriter\Handlers\DataHandler;
 use MisterIcy\ExcelWriter\Handlers\FormatHandler;
 use MisterIcy\ExcelWriter\Handlers\MetadataHandler;
-use MisterIcy\ExcelWriter\Properties\AbstractProperty;
 use MisterIcy\ExcelWriter\Properties\IndexProperty;
 use MisterIcy\ExcelWriter\Properties\IntProperty;
 use MisterIcy\ExcelWriter\Properties\PropertyBuilder;

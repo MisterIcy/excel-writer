@@ -1,8 +1,7 @@
 <?php
-
+declare(strict_types=1);
 
 namespace MisterIcy\ExcelWriter\Properties;
-
 
 trait FormatTrait
 {
@@ -18,7 +17,7 @@ trait FormatTrait
 
     /**
      * @param mixed $formatCode
-     * @return FormatTrait
+     * @return mixed
      */
     public function setFormatCode($formatCode)
     {

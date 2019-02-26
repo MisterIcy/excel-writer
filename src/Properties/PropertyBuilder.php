@@ -5,7 +5,7 @@ namespace MisterIcy\ExcelWriter\Properties;
 
 use MisterIcy\ExcelWriter\Exceptions\PropertyException;
 
-class PropertyBuilder
+final class PropertyBuilder
 {
     const BOOLEAN = BoolProperty::class;
     const CURRENCY = CurrencyProperty::class;

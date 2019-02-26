@@ -27,14 +27,11 @@ trait CallableTrait
 
     /**
      * @param callable $callable
-     * @return CallableTrait
+     * @return mixed
      */
     public function setCallable(callable $callable)
     {
         $this->callable = $callable;
         return $this;
     }
-
-
-
 }

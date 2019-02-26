@@ -1,14 +1,21 @@
 <?php
-
+declare(strict_types=1);
 
 namespace MisterIcy\ExcelWriter\Generator;
-
 
 use MisterIcy\ExcelWriter\Exceptions\GeneratorException;
 use MisterIcy\ExcelWriter\Handlers\HandlerInterface;
 use MisterIcy\ExcelWriter\Properties\PropertyCollection;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 
+/**
+ * Defines an AbstractGenerator, the base of all Generators.
+ *
+ * @package MisterIcy\ExcelWriter\Generator
+ *
+ * @author Alexandros Koutroulis <icyd3mon@gmail.com>
+ * @license MIT
+ */
 abstract class AbstractGenerator implements GeneratorInterface
 {
 

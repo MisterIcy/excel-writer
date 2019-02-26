@@ -1,13 +1,16 @@
 <?php
-
+declare(strict_types=1);
 
 namespace MisterIcy\ExcelWriter\Properties;
-
 
 use MisterIcy\ExcelWriter\Exceptions\PropertyException;
 use Symfony\Component\PropertyAccess\PropertyAccess;
 use Symfony\Component\PropertyAccess\PropertyAccessor;
 
+/**
+ * Class AbstractProperty
+ * @package MisterIcy\ExcelWriter\Properties
+ */
 abstract class AbstractProperty implements PropertyInterface
 {
     use FormulaTrait, FormatTrait, HeaderTrait, CallableTrait;

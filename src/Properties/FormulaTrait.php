@@ -23,7 +23,7 @@ trait FormulaTrait
 
     /**
      * @param bool $isFormula
-     * @return FormulaTrait
+     * @return mixed
      */
     public function setIsFormula(bool $isFormula)
     {
@@ -41,7 +41,7 @@ trait FormulaTrait
 
     /**
      * @param string $formula
-     * @return FormulaTrait
+     * @return mixed
      */
     public function setFormula(string $formula)
     {
