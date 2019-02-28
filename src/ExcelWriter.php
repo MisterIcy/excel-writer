@@ -78,14 +78,14 @@ final class ExcelWriter
     /**
      * @return Spreadsheet
      */
-    public function generateSpreadsheet(array $data) : Spreadsheet
+    public function generateSpreadsheet(array $data, Spreadsheet $spreadsheet = null) : Spreadsheet
     {
         /** @var AbstractGenerator $generator */
         $generator = $this->getGenerator();
 
         $generator->setData($data);
 
-        $generator->generate();
+        $generator->generate($spreadsheet);
 
         return $generator->getSpreadsheet();
     }
