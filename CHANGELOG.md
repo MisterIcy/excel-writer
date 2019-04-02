@@ -3,6 +3,7 @@
 ## [Unreleased]
 ### Fixed
  - Spreadsheet objects can be passed to Writer's Generate, in order to be passed to generator.
+ - Fixed Time Property: It now renders the time correctly
 ## [0.3]
 ### Added:
  - Added NullableTrait that enables the library to be less strict, when searching for properties inside objects. By default we do not search strictly (instead of an Exception, ```null``` will be returned).   
@@ -25,7 +26,7 @@
     - {row} returns the current row
     - {col} returns the current column
     - [propertyPath] returns the column where the propertyPath resides (its first occurrence)
-    - Example: =[cost]{row} * [discount]{row} + [extraCost]{row} 
+    - Example: ```=[cost]{row} * [discount]{row} + [extraCost]{row}``` 
  
 ### Fixed:
  - Fixed CodeStyle Issues  

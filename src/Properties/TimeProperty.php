@@ -33,7 +33,7 @@ final class TimeProperty extends AbstractProperty
         $rendered = parent::renderProperty($object);
         if (!$this->isFormula) {
             return (
-                $this->convertDateTimeToExcelDateTime(
+                $this->convertDateTimeToExcelTime(
                     $rendered
                 )
             );
